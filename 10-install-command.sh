@@ -9,3 +9,12 @@ then
 else
     echo "You are running with root access"
 fi
+
+dnf install mysqlfdsafla -y
+
+if [ $? -eq 0 ]
+then
+    echo "Installing mysql is... success"
+else
+    echo "Installing mysql is.... FAILURE"
+fi
