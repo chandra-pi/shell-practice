@@ -1,5 +1,6 @@
 #!/bin/bash
 
+USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -9,6 +10,8 @@ LOGS_FOLDER="/var/log/shellscript-log"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
 SCRIPT_DIR=$PWD
+
+mkdir -p $LOGS_FOLDER
 
 #Check the user has root previliges or not
 if [ $USERID -ne 0 ]
@@ -29,8 +32,6 @@ VALIDATE(){
         exit 1
     fi
 }
-
-mkdir -p $LOGS_FOLDER
 
 echo "Script started executing at $(date)"
 
